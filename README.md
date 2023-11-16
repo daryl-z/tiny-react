@@ -12,3 +12,7 @@ npx husky add .husky/pre-commit "pnpm lint"
 pnpm i lint-staged -D -w  
 pnpm i commitlint @commitlint/config-conventional -D -w  
 npx husky add .husky/commit-msg "npx --no-install commitlint -e $HUSKY_GIT_PARAMS"
+
+pnpm i -D -w roullup
+
+jsx function
