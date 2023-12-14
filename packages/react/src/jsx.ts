@@ -7,6 +7,7 @@ import type {
   Ref,
   ElementType,
 } from "shared/ReactTypes";
+
 const ReactElement = function (
   type: Type,
   key: Key,
@@ -24,12 +25,35 @@ const ReactElement = function (
   return element;
 };
 
-export const jsx = (type: ElementType, config: any, ...maybeChildren) => {
-  const key: Key = null;
-  const ref: Key = null;
+export const jsx = (type: ElementType, config: any, ...maybeChildren: any) => {
+  let key: Key = null;
+  let ref: Ref = null;
   const props: Key = {};
   for (const prop in config) {
-    // const val = config[prop] {
-    // }
+    const val = config[prop];
+    if (prop === "key") {
+      key = "" + val;
+    }
+    if (prop === "ref") {
+      if (val !== undefined) {
+        ref = val;
+        continue;
+      }
+    }
+    if ({}.hasOwnProperty.call(config, prop)) {
+      props[prop] = val;
+    }
+
+    const maybeChildrenLen = maybeChildren.length;
+    if (maybeChildrenLen) {
+      if (maybeChildrenLen === 1) {
+        props.children = maybeChildren[0];
+      } else {
+        props.children = maybeChildren;
+      }
+    }
   }
+  return ReactElement(type, key, ref, props);
 };
+
+export const jsxDEV = jsx;
