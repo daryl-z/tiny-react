@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint --ext .js,.ts,.jsx,.tsx --fix --quiet ./packages",
-    "prepare": "husky install" 
+    "prepare": "husky install",
+    "build:dev": "rollup --bundleConfigAsCjs --config scripts/rollup/react.config.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@commitlint/config-conventional": "^18.4.0",
+    "@rollup/plugin-commonjs": "^25.0.7",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "commitlint": "^18.4.1",
     "eslint": "^8.53.0",
@@ -20,6 +22,8 @@
     "husky": "^8.0.3",
     "lint-staged": "^15.1.0",
     "prettier": "^3.1.0",
+    "rollup": "^4.9.0",
+    "rollup-plugin-typescript2": "^0.36.0",
     "typescript": "^5.2.2"
   }
 }
