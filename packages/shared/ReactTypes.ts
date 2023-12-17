@@ -5,7 +5,7 @@ export type Props = any;
 
 export type ElementType = any;
 
-export interface ReactElement {
+export interface ReactElementType {
   $$typeof: symbol | number;
   key: Key;
   props: Props;

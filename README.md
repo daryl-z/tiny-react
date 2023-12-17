@@ -16,3 +16,11 @@ npx husky add .husky/commit-msg "npx --no-install commitlint -e $HUSKY_GIT_PARAM
 pnpm i -D -w roullup
 
 jsx function
+
+pnpm i -D -w @rollup/plugin-commonjs
+pnpm i -D -w rimraf
+pnpm i -D -w rollup-plugin-generate-package-json
+
+pnpm link --global
+pnpm link react --global
+将我们的react映射到全局的 然后写一个example就可以验证了
